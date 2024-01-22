@@ -43,14 +43,14 @@ const routes: Routes = [
 
   { path: '', loadChildren: () => import('./eduman/eduman.module').then(m => m.EdumanModule) },
 
-  {
-    path: 'home-2',
-    component: HometwomainComponent
-  },
-  {
-    path: 'home-3',
-    component: HomethreemainComponent
-  },
+  // {
+  //   path: 'home-2',
+  //   component: HometwomainComponent
+  // },
+  // {
+  //   path: 'home-3',
+  //   component: HomethreemainComponent
+  // },
   {
     path: 'about',
     component: AboutmainComponent
