@@ -3,3 +3,6 @@
 {
 font-weight: 600;
 }
+ul li.home.menu-item-has-children::after{
+display: none !important;
+}
