@@ -1,16 +1,14 @@
-<app-headerfour></app-headerfour>
-
 <app-breadcrumb breadcrumbTitle="Courses" breadcrumbSubTitle="MySQL Database : Beginner SQL Database Design">
 </app-breadcrumb>
 
 <!-- course-details-area-start -->
-<section class="course-detalis-area pb-[90px]">
+<section class="course-detalis-area pb-[90px]" dir="rtl">
     <div class="container">
         <div class="grid grid-cols-12 gap-x-[0px] sm:gap-x-[30px]">
             <div class="col-span-12 xl:col-span-8">
                 <div class="course-detalis-wrapper mb-[30px]">
                     <div class="course-heading mb-[20px]">
-                        <h2>MySQL Database : Beginner SQL Database Design</h2>
+                        <h2>{{course.title}}</h2>
                         <div class="course-star">
                             <ul>
                                 <li><i class="fas fa-star"></i></li>
@@ -38,7 +36,8 @@
                             </div>
                             <div class="course-meta-text">
                                 <span>Created by</span>
-                                <h6><a [routerLink]="['/instructor-profile']">David Allberto</a></h6>
+                                <h6><a [routerLink]="['/instructor-profile']">{{course.teacher?.first_name}}
+                                        {{course.teacher?.last_name}}</a></h6>
                             </div>
                         </div>
                         <div class="course-Enroll border-line-meta">
@@ -56,15 +55,11 @@
                     </div>
                     <div class="course-description pt-[45px] pb-[30px]">
                         <div class="course-Description">
-                            <h4>Description</h4>
+                            <h4>الوصف </h4>
                         </div>
-                        <p>This course has been designed by two professional Data Scientists so that we can
-                            share our knowledge and help you learn complex theory, algorithms, and coding
-                            libraries in a simple way. We will walk you step-by-step into the World of Machine
-                            Learning. With every tutorial, you will develop new skills and improve your
-                            understanding of this challenging yet lucrative sub-field of Data Science.</p>
+                        <p>{{course.description}}</p>
                     </div>
-                    <div class="course-learn-wrapper">
+                    <!-- <div class="course-learn-wrapper">
                         <div class="course-learn">
                             <div class="course-leranm-tittle">
                                 <h4 class="mb-[15px]">What you'll learn</h4>
@@ -94,8 +89,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="course-requirements pt-[45px]">
+                    </div> -->
+                    <!-- <div class="course-requirements pt-[45px]">
                         <h4>Requirements</h4>
                         <div class="course-requirements-text">
                             <ul>
@@ -104,15 +99,15 @@
                                 <li>• Broadband Internet</li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="course-curriculum pt-10 pb-[50px]">
                         <div class="course-curriculam">
-                            <h4>Curriculum</h4>
+                            <h4>الدروس</h4>
                         </div>
                         <ul>
-                            <li>15 lectures • 2h 29m 12s total length</li>
+                            <li>عدد الدروس •{{course.lessons.length}} درس</li>
                         </ul>
-                        <app-coursecurriculam></app-coursecurriculam>
+                        <app-coursecurriculam [lessons]="course.lessons"></app-coursecurriculam>
                     </div>
                     <app-courseinstructor></app-courseinstructor>
                     <app-studentfeedback></app-studentfeedback>
@@ -171,5 +166,3 @@
         </div>
     </div>
 </section>
-
-<app-footerone></app-footerone>

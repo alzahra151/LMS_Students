@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Lesson } from 'src/app/models/lesson';
 
 @Component({
   selector: 'app-coursecurriculam',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./coursecurriculam.component.scss']
 })
 export class CoursecurriculamComponent implements OnInit {
-  
-  panelOpenState = false;
 
-  constructor() {}
-  ngOnInit(): void {}
+  panelOpenState = false;
+  @Input() lessons: Lesson[] = []
+  constructor() { }
+  ngOnInit(): void { }
 
 }

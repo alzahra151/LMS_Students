@@ -143,7 +143,10 @@ import { AdminHomeComponent } from './homeone/admin-home/admin-home.component';
 import { EdumaRoutingModule } from './eduma-routing.module';
 import { SidebarComponent } from './homeone/sidebar/sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list'; // Import MatListModule
+import { MatListModule } from '@angular/material/list';
+import { CoursetabdetailsComponent } from './elements/tabs/coursetabdetails/coursetabdetails.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { DisplayvideoComponent } from './coursedetails/displayvideo/displayvideo.component'; // Import MatListModule
 
 
 // const routes: Routes = [
@@ -313,6 +316,9 @@ import { MatListModule } from '@angular/material/list'; // Import MatListModule
     SublevelMenuComponent,
     AdminHomeComponent,
     SidebarComponent,
+    CoursetabdetailsComponent,
+    MainLayoutComponent,
+    DisplayvideoComponent,
   ]
 })
 export class EdumanModule { }

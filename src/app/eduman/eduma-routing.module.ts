@@ -5,13 +5,19 @@ import { HomeonemainComponent } from './homeone/homeonemain/homeonemain.componen
 import { CourseonemainComponent } from './course/courseone/courseonemain/courseonemain.component';
 import { HeroComponent } from './homeone/hero/hero.component';
 import { AdminHomeComponent } from './homeone/admin-home/admin-home.component';
+import { CoursedetailsmainComponent } from './coursedetails/coursedetailsmain/coursedetailsmain.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { DisplayvideoComponent } from './coursedetails/displayvideo/displayvideo.component';
 
 const routes: Routes = [
   {
-    path: '', component: HomeonemainComponent,
+    path: '', component: MainLayoutComponent,
     children: [
-      { path: '', component: HeroComponent },
+      { path: '', component: HomeonemainComponent },
       { path: 'course', component: CourseonemainComponent },
+      { path: 'course-details/:id', component: CoursedetailsmainComponent },
+      { path: 'course-details/:id/lesson/:video_url', component: DisplayvideoComponent },
+
     ],
   },
   {

@@ -2,221 +2,71 @@
     <div class="accordion" id="accordionExample">
         <div class="accordion-item">
             <mat-accordion>
-                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel *ngFor="let lesson of lessons" (opened)="panelOpenState = true"
+                    (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             <span class="accordion-header">
                                 <span class="accordion-tittle">
-                                    <span>Welcome to the Course & Overview</span>
+                                    <span>{{lesson?.title}}</span>
                                 </span>
                                 <span class="accordion-tittle-inner">
-                                    <span>8 lectures • 47m</span>
+                                    <span> دقائق{{lesson.duration}}</span>
                                 </span>
                             </span>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <div class="accordion-body">
                         <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
+                            <div class="course-curriculum-info ">
+
+                                <h4>{{lesson.description}}.</h4>
                             </div>
-                            <div class="course-curriculum-meta">
+                            <!-- <div class="course-curriculum-meta">
                                 <span>5:30</span>
                                 <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
+                            </div> -->
                         </div>
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
+
+                        <div *ngIf="lesson.is_free" [routerLink]="['lesson',lesson.video_url]"
+                            class="course-curriculum-content sm:flex justify-between items-center">
+                            <div class="course-curriculum-info ">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-1" fill="#A769CF"
+                                    viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z" />
+                                </svg>
+                                <h4>مشاهدة الدرس </h4>
+                            </div>
+                            <div class="course-curriculum-meta">
+                                <span>7:30</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="black" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 10.5V6.75a4.5 4.5 0 1 1 9 0v3.75M3.75 21.75h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H3.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                                </svg>
+                            </div>
+                            <!-- <app-displayvideo [url]="lesson.video_url"></app-displayvideo> -->
+                        </div>
+                        <div *ngIf="!lesson.is_free"
+                            class="course-curriculum-content sm:flex justify-between items-center">
+                            <div class="course-curriculum-info ">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-1" fill="gray"
+                                    viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z" />
+                                </svg>
+                                <h4>مشاهدة الدرس </h4>
                             </div>
                             <div class="course-curriculum-meta">
                                 <span>7:30</span>
                                 <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
-                        </div>
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
-                            </div>
-                            <div class="course-curriculum-meta">
-                                <span>3:30</span>
-                                <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
-                        </div>
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
-                            </div>
-                            <div class="course-curriculum-meta">
-                                <span>8:30</span>
-                                <span class="time"> <i class="flaticon-lock"></i></span>
+                                <!-- <span class="time"> <i class="flaticon-youtube"></i></span> -->
                             </div>
                         </div>
                     </div>
                 </mat-expansion-panel>
-
-                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <span class="accordion-header">
-                                <span class="accordion-tittle">
-                                    <span>Python Application Engine</span>
-                                </span>
-                                <span class="accordion-tittle-inner">
-                                    <span>2 lectures • 12m</span>
-                                </span>
-                            </span>
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <div class="accordion-body">
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Data Manipulation Tools</h4>
-                            </div>
-                            <div class="course-curriculum-meta">
-                                <span>6:30</span>
-                                <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
-                        </div>
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
-                            </div>
-                            <div class="course-curriculum-meta">
-                                <span>8:30</span>
-                                <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </mat-expansion-panel>
-
-                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <span class="accordion-header">
-                                <span class="accordion-tittle">
-                                    <span>Algorithm Comparison</span>
-                                </span>
-                                <span class="accordion-tittle-inner">
-                                    <span>3 lectures • 13m</span>
-                                </span>
-                            </span>
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <div class="accordion-body">
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
-                            </div>
-                            <div class="course-curriculum-meta">
-                                <span>3:30</span>
-                                <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
-                        </div>
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
-                            </div>
-                            <div class="course-curriculum-meta">
-                                <span>5:30</span>
-                                <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
-                        </div>
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
-                            </div>
-                            <div class="course-curriculum-meta">
-                                <span>7:30</span>
-                                <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </mat-expansion-panel>
-
-                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <span class="accordion-header">
-                                <span class="accordion-tittle">
-                                    <span>Data Manipulation Tools</span>
-                                </span>
-                                <span class="accordion-tittle-inner">
-                                    <span>7 lectures • 35m</span>
-                                </span>
-                            </span>
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <div class="accordion-body">
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
-                            </div>
-                            <div class="course-curriculum-meta">
-                                <span>2:30</span>
-                                <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
-                        </div>
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
-                            </div>
-                            <div class="course-curriculum-meta">
-                                <span>4:30</span>
-                                <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </mat-expansion-panel>
-
-                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <span class="accordion-header">
-                                <span class="accordion-tittle">
-                                    <span>Sorting- the Bubble Sort Algorithm</span>
-                                </span>
-                                <span class="accordion-tittle-inner">
-                                    <span>10 lectures • 55m</span>
-                                </span>
-                            </span>
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-                    <div class="accordion-body">
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
-                            </div>
-                            <div class="course-curriculum-meta">
-                                <span>6:30</span>
-                                <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
-                        </div>
-                        <div class="course-curriculum-content sm:flex justify-between items-center">
-                            <div class="course-curriculum-info">
-                                <i class="flaticon-youtube"></i>
-                                <h4>Importing the libraries</h4>
-                            </div>
-                            <div class="course-curriculum-meta">
-                                <span>8:30</span>
-                                <span class="time"> <i class="flaticon-lock"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </mat-expansion-panel>
-            </mat-accordion>              
+            </mat-accordion>
         </div>
     </div>
 </div>

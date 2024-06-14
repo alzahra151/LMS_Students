@@ -1,0 +1,50 @@
+// .video iframe{
+//     width: 100%;
+// }
+// ::ng-deep iframe{
+//  width: 100% !important;
+// }
+.vimeo-player {
+    position: relative;
+    padding-bottom: 46%; /* Aspect ratio 16:9 (100% / (16/9) = 56.25%) */
+    height: 0;
+    overflow: hidden;
+  width: 100%;
+    // z-index: 999;
+    height: auto;
+    // background: #000;
+}
+@media screen and (max-width:600px){
+ .vimeo-player {
+    position: relative;
+    padding-bottom: 60%; /* Aspect ratio 16:9 (100% / (16/9) = 56.25%) */
+    height: 0;
+    overflow: hidden;
+  width: 100%;
+    // z-index: 999;
+    height: auto;
+    // background: #000;
+}   
+}
+// .vimeo-container div {
+  
+//     width: 100%;
+//     height: 100%;
+//        background: #000;
+// }
+ ::ng-deep .vimeo-player iframe {
+    position: absolute;
+ top:0;
+ left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+// iframe[Attributes ] {
+//     // width: 426px;
+//     height:100%;
+//     border-top-width: 0px;
+//     border-bottom-width: 0px;
+//     border-left-width: 0px;
+//     border-right-width: 0px;
+// }

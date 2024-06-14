@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
+import { Course } from 'src/app/models/course';
+import { CourseService } from 'src/app/services/course/course.service';
+
 @Component({
   selector: 'app-coursetab',
   templateUrl: './coursetab.component.html',
@@ -7,9 +10,22 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class CoursetabComponent implements OnInit {
+  courses: Course[] = []
+  constructor(private coursrService: CourseService) { }
 
-  constructor() { }
+  ngOnInit(): void {
+    this.getCourses()
+  }
 
-  ngOnInit(): void {}
+  getCourses() {
+    this.coursrService.getAllCousres().subscribe({
+      next: (response) => {
+        console.log(response)
+        this.courses = response.result.courses
+      }, error: (error) => {
+        console.log(error)
+      }
+    })
+  }
 
 }

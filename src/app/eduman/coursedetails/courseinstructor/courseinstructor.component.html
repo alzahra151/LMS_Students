@@ -1,14 +1,13 @@
 <div class="course-instructors">
-    <h3>instructors</h3>
+    <h3>المعلم </h3>
     <div class="instructors-heading">
         <div class="instructors-img w-img">
-            <a [routerLink]="['/instructor-profile']"><img
-                    src="assets/img/course/course-instructors.png"
+            <a [routerLink]="['/instructor-profile']"><img src="assets/img/course/course-instructors.png"
                     alt="image not found"></a>
         </div>
         <div class="instructors-body">
-            <h5><a [routerLink]="['/instructor-profile']">David Allberto</a></h5>
-            <span>Data Scientist, BDevs Ltd.</span>
+            <h5><a [routerLink]="['/instructor-profile']">{{instructor.first_name}}{{instructor.last_name}}</a></h5>
+            <!-- <span>{{instractor.}}</span> -->
             <div class="intructors-review">
                 <i class="fas fa-star"></i>
                 <span>4.7 (54 reviews)</span>

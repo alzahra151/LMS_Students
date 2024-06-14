@@ -1,4 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Course } from 'src/app/models/course';
+import { CourseService } from 'src/app/services/course/course.service';
 
 @Component({
   selector: 'app-coursedetailsmain',
@@ -7,17 +10,45 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class CoursedetailsmainComponent implements OnInit {
-  writeReviewActive:boolean=false;
-  writeReview(){
-    if(this.writeReviewActive==false){
-      this.writeReviewActive=true;
+  writeReviewActive: boolean = false;
+  course: Course = {
+    id: 0,
+    title: '',
+    lessons: []
+  }
+  courserId: number = 0
+  writeReview() {
+    if (this.writeReviewActive == false) {
+      this.writeReviewActive = true;
     }
     else {
-      this.writeReviewActive=false;
+      this.writeReviewActive = false;
     }
   }
-  constructor() { }
+  constructor(
+    private courrseService: CourseService,
+    private route: ActivatedRoute
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.courserId = params['id'];
+      if (this.courserId) {
+        this.getCourseById();
+      } else {
+        console.log('id undefiund')
+      }
+    })
+  }
+  getCourseById() {
+    this.courrseService.getCousreById(this.courserId).subscribe({
+      next: (response) => {
+        this.course = response.result.course;
+        console.log(this.course)
+      }, error: (error) => {
+        console.log(error)
+      }
+    })
+  }
 
 }
