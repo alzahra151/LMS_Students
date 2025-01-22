@@ -3,7 +3,7 @@ import { Student } from "./student";
 
 
 export interface Course {
-    id?: number;
+    id: number;
     title?: string;
     alt_title?: string;
     description?: string;
@@ -20,10 +20,14 @@ export interface Course {
     teacher?: Student,
     rates?: Array<number>,
     rating?: number,
-    poster?: string
+    poster?: string,
+    total?: number
+    is_enrolled?: boolean
+   
 
 }
 export interface CourseRespone {
     courses: Course[],
-    course: Course
+    course: Course,
+    isEnrolled: boolean
 }

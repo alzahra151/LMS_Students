@@ -43,3 +43,14 @@
 		@apply w-[27px] rounded-[5px];
     }
 }
+
+:host ::ng-deep .swiper .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+     display: block !important
+; 
+    transition-property: transform;
+    box-sizing: content-box;
+}

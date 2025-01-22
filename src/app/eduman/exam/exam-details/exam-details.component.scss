@@ -1,0 +1,16 @@
+
+
+::ng-deep label[for="default-radio-1"] span p {
+   margin-bottom: 0px !important;
+}
+::ng-deep .count-down span{
+    border:1px solid gray;
+    padding: 5px;
+}
+.exam{
+    overflow: scroll;
+}
+html, body {
+  overflow: auto;
+  height: 100%;
+}

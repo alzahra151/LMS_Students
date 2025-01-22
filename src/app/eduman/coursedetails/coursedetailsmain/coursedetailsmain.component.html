@@ -1,4 +1,4 @@
-<app-breadcrumb breadcrumbTitle="Courses" breadcrumbSubTitle="MySQL Database : Beginner SQL Database Design">
+<app-breadcrumb  breadcrumbTitle="تفاصيل الكورس" breadcrumbSubTitle=" {{course.title}}  :  الفيزياء">
 </app-breadcrumb>
 
 <!-- course-details-area-start -->
@@ -31,26 +31,29 @@
                     <div class="course-detelis-meta">
                         <div class="course-meta-wrapper border-line-meta">
                             <div class="course-meta-img">
-                                <a [routerLink]="['/instructor-profile']"><img src="assets/img/course/course-meta.png"
+                                <a [routerLink]="['/instructor-profile']"><img src="assets/img/teacher/ibr.jpeg"
                                         alt="course-meta"></a>
                             </div>
-                            <div class="course-meta-text">
-                                <span>Created by</span>
+                            <div class="course-meta-text mx-2">
+                                <span>المعلم</span>
                                 <h6><a [routerLink]="['/instructor-profile']">{{course.teacher?.first_name}}
                                         {{course.teacher?.last_name}}</a></h6>
                             </div>
                         </div>
-                        <div class="course-Enroll border-line-meta">
+                        <!-- <div class="course-Enroll border-line-meta">
                             <p>Total Enrolled</p>
-                            <span>5,420</span>
-                        </div>
+                            
+                        </div> -->
                         <div class="course-update border-line-meta">
-                            <p>Last Update</p>
-                            <span>01 January 2023 </span>
+                            
+                            <button [routerLink]="['exam']" [disabled]="!isEnrolled" class="font-bold text-green-600" [ngClass]="isEnrolled ? 'text-green-400' : 'text-gray-400'">
+                                الامتحانات
+                            </button>
+
                         </div>
                         <div class="course-category">
-                            <p>01 January 2023 </p>
-                            <span><a [routerLink]="['/course']">Data Science</a></span>
+                            <p>01 January 2025 </p>
+                            <span><a [routerLink]="['/course']">الفيزياء</a></span>
                         </div>
                     </div>
                     <div class="course-description pt-[45px] pb-[30px]">
@@ -59,6 +62,7 @@
                         </div>
                         <p>{{course.description}}</p>
                     </div>
+
                     <!-- <div class="course-learn-wrapper">
                         <div class="course-learn">
                             <div class="course-leranm-tittle">
@@ -107,11 +111,12 @@
                         <ul>
                             <li>عدد الدروس •{{course.lessons.length}} درس</li>
                         </ul>
-                        <app-coursecurriculam [lessons]="course.lessons"></app-coursecurriculam>
+                        <app-coursecurriculam [lessons]="course.lessons"
+                            [isEnrolled]="isEnrolled"></app-coursecurriculam>
                     </div>
-                    <app-courseinstructor></app-courseinstructor>
+                    <!-- <app-courseinstructor [instructor]="course."></app-courseinstructor> -->
                     <app-studentfeedback></app-studentfeedback>
-                    <app-coursereview></app-coursereview>
+                    <!-- <app-coursereview></app-coursereview> -->
                     <div class="course-review-btn">
                         <a id="show-review-box" class="edu-btn" href="javascript:void(0)" (click)=writeReview()>Write a
                             Review</a>
@@ -161,7 +166,7 @@
                 </div>
             </div>
             <div class="col-span-12 xl:col-span-4 md:col-span-8">
-                <app-coursevideo></app-coursevideo>
+                <app-coursevideo [course]="course"></app-coursevideo>
             </div>
         </div>
     </div>

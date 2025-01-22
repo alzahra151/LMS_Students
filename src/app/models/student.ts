@@ -1,5 +1,5 @@
 export interface Student {
-
+    id: number
     first_name?: string;
     last_name?: string;
     password?: string;
@@ -9,4 +9,6 @@ export interface Student {
     mobile?: number;
     role_id?: number;
     class_id?: number;
+    brief?: string,
+    subject?: string
 }

@@ -1,5 +1,5 @@
 <!-- cart mini area start -->
-<div class="cartmini__area">
+<div class="cartmini__area ">
   <div class="cartmini__wrapper" [class.opened]="sidebarCartActive">
     <div class="cartmini__title">
       <h4>Shopping cart</h4>
@@ -9,7 +9,7 @@
         <i class="fal fa-times"></i>
       </button>
     </div>
-    <app-cartitem></app-cartitem>
+    <!-- <app-cartitem></app-cartitem> -->
   </div>
 </div>
 <div
@@ -32,7 +32,7 @@
         <div class="grid grid-cols-12 items-center">
           <div class="col-span-9">
             <a [routerLink]="['/']">
-              <img src="assets/img/logo/logo-black.png" alt="Logo" />
+              <img style="width: 70px;height: 70px;"  src="assets/img/logo/logo3.jpeg" alt="Logo" />
             </a>
           </div>
           <div class="col-span-3 text-right">
@@ -55,10 +55,10 @@
       </div>
       <div class="offset-widget offset_menu-top mb-[20px]">
         <div class="header-menu-top-icon mb-[20px]">
-          <a href="#"><i class="fas fa-phone-alt"></i>(555) 674 890 556</a>
-          <a href="#"><i class="fal fa-envelope"></i>info@example.com</a>
+          <a href="#"><i class="fas fa-phone-alt"></i>01014393018</a>
+          <!-- <a href="#"><i class="fal fa-envelope"></i>info@example.com</a> -->
           <i class="fal fa-map-marker-alt"></i
-          ><span>3rd Avenue, San Francisco</span>
+          ><span>سوهاج-طهطا-شارع 15</span>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
 <div class="offcanvas-overlay-white"></div>
 <!-- side toggle end -->
 
-<header>
+<header class="header shadow-lg">
   <!-- header-top start-->
   <div class="header-top-area hidden lg:block">
     <div class="container-fluid">
@@ -76,13 +76,14 @@
           <div class="col-span-12 lg:col-span-8">
             <div class="header-top-icon">
               <a href="tel:(555)674890556"
-                ><i class="fas fa-phone-alt"></i>(555) 674 890 556</a
+                ><i class="fas fa-phone-alt"></i>01014393018</a
               >
               <a href="mailto:info@example.com"
                 ><i class="fal fa-envelope"></i>info@example.com</a
               >
               <i class="fal fa-map-marker-alt"></i
-              ><span>3rd Avenue, San Francisco</span>
+              >
+              <!-- <span>سوهاج-طهطا-شارع 15</span> -->
             </div>
           </div>
           <div class="col-span-12 lg:col-span-4">
@@ -109,7 +110,7 @@
   </div>
   <!-- .header-are-start -->
   <div
-    class="header-area-2 sticky-header"
+    class="header-area-2 sticky-header "
     [ngClass]="{ 'mat-elevation-z5': true, sticky: isSticky }"
   >
     <div class="container-fluid">
@@ -118,7 +119,7 @@
           <div class="lg:col-span-3 col-span-5">
             <div class="header-logo">
               <a [routerLink]="['/']"
-                ><img src="assets/img/logo/logo-black.png" alt="img"
+                ><img style="width: 100px;height: 100px;" src="assets/img/logo/logo3.jpeg" alt="img"
               /></a>
             </div>
           </div>
@@ -128,7 +129,7 @@
                 <app-mainmenu></app-mainmenu>
               </div>
               <div class="header-btn">
-                <div class="cart-wrapper mr-[45px]">
+                <!-- <div class="cart-wrapper mr-[45px]">
                   <a
                     href="javascript:void(0);"
                     class="cart-toggle-btn"
@@ -168,7 +169,7 @@
                       <span class="item-number">3</span>
                     </div>
                   </a>
-                </div>
+                </div> -->
                 <a
                   class="edu-four-btn hidden lg:block"
                   [routerLink]="['/signin']"

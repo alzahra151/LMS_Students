@@ -7,10 +7,10 @@
             </div>
         </div>
         <div class="course-video-price">
-            <span>$147.00</span>
+            <span>{{course.price}}</span>
         </div>
         <div class="course-video-body">
-            <ul>
+            <!-- <ul>
                 <li>
                     <div class="course-vide-icon">
                         <i class="flaticon-filter"></i>
@@ -83,7 +83,7 @@
                         <span>5 Downloadable Files </span>
                     </div>
                 </li>
-            </ul>
+            </ul> -->
         </div>
         <div class="video-wishlist">
             <a [routerLink]="['/cart']" class="video-cart-btn"><i class="fal fa-shopping-cart"></i>Add to cart</a>
@@ -100,8 +100,8 @@
     </div>
 </div>
 
-
-<!-- <div class="course-video-popup">
+<!-- 
+<div class="course-video-popup">
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

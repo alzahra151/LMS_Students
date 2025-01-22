@@ -1,13 +1,15 @@
 <!-- testimonial-area-start -->
-<div class="testimonial-area pb-[120px]">
+ <div class="testimonial-area pb-5">
    <div class="container">
-      <div class="section-title text-center mb-[55px]">
-         <h2>افضل المدرسين  الموجودين في <br>
-          <span class="down-mark-line"> اكاديميه نور  </span>  </h2>
+      <div class="section-title text-center mb-4">
+         <h2>افضل المدرسين الموجودين في <br>
+            <span class="down-mark-line"> I TOP</span>
+         </h2>
       </div>
+      <!--
       <div class="testimonial-active">
          <div class="swiper-wrapper">
-            <swiper class="mySwiper" [slidesPerView]="1" [spaceBetween]="30" [loop]="true" [autoplay]="{
+            <swiper class="mySwiper" [slidesPerView]="1" [spaceBetween]="30" [loop]="false" [autoplay]="{
                 delay: 2500,
                 disableOnInteraction: false
             }" [pagination]="{
@@ -40,15 +42,15 @@
                 }
               }">
 
-               <ng-template swiperSlide>
-                  <div class="testimonial-items relative" dir="rtl">
+               <ng-template swiperSlide *ngFor="let teacher of teachers">
+                  <div class="testimonial-items relative" >
                      <div class="testimonial-header">
                         <div class="testimonial-img ml-4">
-                           <img src="assets/img/testimonial/Image.png" alt="image not found">
+                           <img class="w-32 h-32" [src]="teacher.photo" alt="image not found">
                         </div>
                         <div class="testimonial-title">
-                           <h4>احمد محمد  </h4>
-                           <span>مدرس احياء</span>
+                           <h4> {{teacher.first_name}} {{teacher.last_name}} </h4>
+                           <span> {{teacher.subject}}</span>
                         </div>
                      </div>
                      <div class="testimoni-quotes">
@@ -57,8 +59,8 @@
                      </div>
                      <div class="testimonial-body">
                         <h3>نبذه مختصره عنه</h3>
-                        <p>Thanks to our marketplace model, our content keeps pace with market changes. You’ll find
-                           courses on the latest technologies and business practice and more!</p>
+                     
+                        <p>{{teacher.brief}}</p>
                      </div>
                      <div class="testimonial-icon">
                         <i class="fas fa-star"></i>
@@ -129,7 +131,37 @@
             </swiper>
          </div>
          <div class="testimonial-pagination text-center"></div>
-      </div>
+      </div>-->
    </div>
+</div> 
+<div *ngFor="let teacher of teachers" class="grid grid-cols-12 mb-6 p-8" dir="rtl">
+      <div class="testimonial-items relative lg:col-span-4 md:col-span-6 col-span-12">
+         <div class="testimonial-header">
+            <div class="testimonial-img ml-4">
+               <img class="w-32 h-32" [src]="teacher.photo" alt="image not found">
+            </div>
+            <div class="testimonial-title">
+               <h4> {{teacher.first_name}} {{teacher.last_name}} </h4>
+               <span> {{teacher.subject}}</span>
+            </div>
+         </div>
+         <div class="testimoni-quotes">
+            <img src="assets/img/testimonial/quotes.png" alt="image not found">
+      
+         </div>
+         <div class="testimonial-body">
+            <h3>نبذه مختصره عنه</h3>
+            <!-- <p>Thanks to our marketplace model, our content keeps pace with market changes. You’ll find
+                                 courses on the latest technologies and business practice and more!</p> -->
+            <p>{{teacher.brief}}</p>
+         </div>
+         <div class="testimonial-icon">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+         </div>
+      </div>
 </div>
 <!-- testimonial-area-end -->

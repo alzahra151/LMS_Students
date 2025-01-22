@@ -1,7 +1,7 @@
 <!-- hero-area-sart -->
 <section
-  class="slider-area hero-height relative overflow-hidden"
-  [style.background-image]="'url(assets/img/slider/Image.jpg)'"
+  class="slider-area hero-height relative overflow-hidden img-slider shadow-lg"
+  [style.background-image]="'url(assets/img/slider/Image3.jpeg)'"
 >
   <img
     class="shape-3 hidden xxl:block"
@@ -10,19 +10,18 @@
   />
   <div class="container">
     <div class="grid grid-cols-12">
-      <div class="col-span-12 md:col-span-6">
+      <div class="col-span-12 md:col-span-5">
         <div class="hero-text pt-[95px]">
-          <h5>اكتشف رحلتنا</h5>
-          <h2>
-            اعرف اكثر من <span class="down-mark-line">4500+</span> كورس من افضل
-            المدرسين في مصر
+          <h5 class="hidden	lg:block">اكتشف رحلتنا</h5>
+          <h2 class="hidden	lg:block " dir="rtl">
+           مع <span class="down-mark-line"> I TOP</span> اجعل التعلم رحلة ممتعة  ونجاحك هدفنا!
           </h2>
-          <p>
+          <p class="hidden	lg:block">
             خذ مؤسستك التعليمية إلى المستوى التالي
             . الذين سيشاركون معارفهم مع الناس في جميع أنحاء العالم
           </p>
-          <div class="hero-btn">
-            <a class="edu-btn" [routerLink]="['/course']">تصفح كل الكورسات</a>
+          <div class="hero-btn hidden	lg:block">
+            <a class="edu-btn" href="#courses">تصفح كل الكورسات</a>
           </div>
         </div>
       </div>
@@ -45,7 +44,7 @@
             src="assets/img/shape/slider-shape-6.png"
             alt="shape"
           />
-          <div class="shape-4">
+          <div class="shape-2">
             <img src="assets/img/shape/shape-04.png" alt="shape" />
             <h5 class="hero-shape-text">افضل المدرسين</h5>
           </div>

@@ -146,9 +146,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { CoursetabdetailsComponent } from './elements/tabs/coursetabdetails/coursetabdetails.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { DisplayvideoComponent } from './coursedetails/displayvideo/displayvideo.component'; // Import MatListModule
-
-
+import { DisplayvideoComponent } from './coursedetails/displayvideo/displayvideo.component';
+import { ExamsComponent } from './exam/exams/exams.component';
+import { ExamDetailsComponent } from './exam/exam-details/exam-details.component'; // Import MatListModule
+// import { MatTooltipModule } from '@angular/material/tooltip';
+// import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { FinishExamComponent } from './exam/finish-exam/finish-exam.component';
+import { ToastrModule } from 'ngx-toastr';
+import { StudentExamsComponent } from './exam/student-exams/student-exams.component';
+import { ExamAnswerComponent } from './exam/exam-answer/exam-answer.component';
 // const routes: Routes = [
 //   {
 //     path: '', component: HomeonemainComponent, children:
@@ -187,6 +194,8 @@ import { DisplayvideoComponent } from './coursedetails/displayvideo/displayvideo
     MatExpansionModule,
     MatToolbarModule,
     MatDatepickerModule,
+    MatTableModule,
+    CountdownModule,
     // BrowserModule,
     ReactiveFormsModule,
     FormsModule,
@@ -197,7 +206,15 @@ import { DisplayvideoComponent } from './coursedetails/displayvideo/displayvideo
     // [RouterModule.forChild(routes)]
     EdumaRoutingModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    ToastrModule.forRoot(
+      {
+        timeOut: 0,            // Prevent auto-close
+        extendedTimeOut: 0,    // Prevent close on hover
+        closeButton: true,     // Show close button
+        tapToDismiss: false    // Disable close on click
+      }
+    ), // ToastrModule added
   ],
   declarations: [
     CategoriesComponent,
@@ -319,6 +336,11 @@ import { DisplayvideoComponent } from './coursedetails/displayvideo/displayvideo
     CoursetabdetailsComponent,
     MainLayoutComponent,
     DisplayvideoComponent,
+    ExamsComponent,
+    ExamDetailsComponent,
+    FinishExamComponent,
+    StudentExamsComponent,
+    ExamAnswerComponent,
   ]
 })
 export class EdumanModule { }

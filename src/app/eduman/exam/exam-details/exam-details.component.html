@@ -1,0 +1,60 @@
+<div class=" m-5" dir="rtl">
+    <div class=" bg-white">
+        <countdown class="mx-2" *ngIf="exam?.duration" #cd [config]="{leftTime: duration}"
+            (event)="handleEvent($event)" />
+        <!-- <button class="bg-blue-500 text-white rounded px-1 m-2" (click)="pauseTimer()">توقف مؤقت</button>
+        <button class="bg-blue-500 text-white rounded px-1 m-2" (click)="resumeTimer()"> استئناف</button> -->
+
+        <form [formGroup]="examForm">
+            <div formArrayName="questions" *ngIf="exam.questions">
+                <div *ngFor="let questionGroup of questions.controls; let i = index" class="mb-5 border border-1 p-2">
+                    <div>
+                        <div class="grid grid-cols-12 bg-[#e5ccf0] ">
+                            <div class="col-span-12 mx-2 p-1" *ngIf="exam.questions?.[i]">
+                                <div class="w-100" [innerHTML]="exam.questions[i].title"></div>
+                            </div>
+                        </div>
+                        <div class="col-span-1 mx-2 p-1 flex justify-end" *ngIf="exam.questions?.[i]"> درجة السؤال
+                            {{exam.questions[i].degree}}
+                        </div>
+                    </div>
+
+                    <div class="w-full"></div>
+
+                    <div *ngIf="exam.questions?.[i]?.answers" formGroupName="{{i}}" class="grid grid-cols-12">
+                        <div *ngFor="let answer of exam.questions[i].answers; let j = index"
+                            class="lg:col-span-6 col-span-12">
+                            <div>
+                                <div class="grid grid-cols-12 border border-1 rounded m-2">
+                                    <div class="p-2 col-span-10 flex ">
+                                        <!-- <input type="radio"  [value]="">
+                                        <div class="p-2 " >
+                                        </div> -->
+                                        <div class=" col-span-2 flex items-center mb-4">
+                                            <input id="default-radio-1" formControlName="answer_id" type="radio"
+                                                [value]="answer.id"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="default-radio-1"
+                                                class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                <span [innerHTML]="answer.title"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+
+            <div class="sing-buttom mb-5">
+                <button (click)="correctExam()" class="sing-btn">انهاء
+                </button>
+            </div>
+        </form>
+
+        <!-- {{ examForm.value | json }} -->
+
+    </div>
+</div>

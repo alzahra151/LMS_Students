@@ -23,7 +23,8 @@ export class DisplayvideoComponent {
   }
   ngAfterViewInit() {
     this.player = new Player(this.vimeoContainer.nativeElement, {
-      url: this.videoUrl,
+      url: "https://vimeo.com/965280460",
+
       // width: 800,
       autoplay: true,
       // : false, // Hide the user's byline

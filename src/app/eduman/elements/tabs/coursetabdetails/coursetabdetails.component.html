@@ -1,6 +1,6 @@
 <div class="portfolio-course-body ">
     <div class="grid grid-cols-12 course-main-items gap-x-[0px] sm:gap-x-[30px] ">
-        <div *ngFor="let course of courses" class="col-span-12 md:col-span-6 lg:col-span-4 bg-black">
+        <div *ngFor="let course of courses" class="col-span-12 md:col-span-6 lg:col-span-4 ">
             <div class="eduman-course-main-wrapper mb-[30px] ">
                 <!-- <div class="course-cart">
                     <div class="course-info-wrapper">
@@ -45,11 +45,12 @@
                     </div>
                 </div> -->
                 <div class="eduman-course-thumb w-img">
-                    <a [routerLink]="['/course-details']"><img [src]="course.poster" alt="course-img" /></a>
+                    <a [routerLink]="['/course-details']"><img crossorigin="anonymous" [src]="course.poster"
+                            alt="course-img" /></a>
                 </div>
                 <div class="eduman-course-wraper">
                     <div class="eduman-course-heading">
-                        <a [routerLink]="['/course']" class="course-link-color-1">Development</a>
+                        <a [routerLink]="['/course']" class="course-link-color-1">{{course.teacher?.subject}}</a>
                         <span class="couse-star"><i class="fas fa-star"></i>4.9 (25)</span>
                     </div>
                     <div class="eduman-course-text">
@@ -58,14 +59,27 @@
                         </h3>
                     </div>
                     <div class="eduman-course-meta">
-                        <div class="eduman-course-price">
-                            <span class="price-now">$47.00 </span>
-                            <del class="price-old">$75.50</del>
+                        <div *ngIf="!course.is_free" class="eduman-course-price">
+                            <del class="price-old">{{course.price}}جنيها</del>
+                            <span class="price-now">{{course.total}} جنيها</span>
+
+                        </div>
+                        <div *ngIf="course.is_free" class="eduman-course-price">
+                            <span class="price-now">الكورس مجاني</span>
+
                         </div>
                         <div class="eduman-course-tutor">
-                            <img [src]="course.teacher?.photo" />
+                            <img crossorigin="anonymous" src="assets/img/teacher/ibr.jpeg" class="w-12 h-12" />
                             <a class="mx-2" [routerLink]="['/instructor-profile']"><span>{{course.teacher?.first_name}}
                                     {{course.teacher?.last_name}}</span></a>
+                        </div>
+                        <div class="eduman-course-tutor sing-buttom my-3">
+                            <button 
+                                *ngIf="!course.is_enrolled" class="sing-btn text-white"
+                                (click)="addEnrollment(course)">الاشتراك في
+                                الكورس</button>
+                            <button *ngIf="course.is_enrolled" class="sing-btn text-white">
+                                تم طلب الاشتراك</button>
                         </div>
                     </div>
                 </div>
@@ -79,7 +93,7 @@
                                     fill="#575757" />
                             </g>
                         </svg>
-                        <span class="ms-2">12 Lessons</span>
+                        <span class="ms-2"> {{course.lessons.length}} درس</span>
                     </div>
                     <div class="course-deteals-btn">
                         <a [routerLink]="['/course-details',course.id]"><span class="me-2">تفاصيل الكورس</span><i

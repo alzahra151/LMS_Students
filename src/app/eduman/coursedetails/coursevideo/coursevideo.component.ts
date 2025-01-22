@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PopupvideoComponent } from '../../common/popupvideo/popupvideo.component';
+import { Course } from 'src/app/models/course';
 
 @Component({
   selector: 'app-coursevideo',
@@ -9,13 +10,16 @@ import { PopupvideoComponent } from '../../common/popupvideo/popupvideo.componen
   encapsulation: ViewEncapsulation.None
 })
 export class CoursevideoComponent implements OnInit {
-
-  constructor(public dialog: MatDialog) {}
+  @Input() course!: Course;
+  constructor(public dialog: MatDialog) { }
 
   openDialog() {
-    this.dialog.open(PopupvideoComponent);
+    this.dialog.open(PopupvideoComponent, {
+      // width: '90vw',
+      // maxWidth: '90vw',
+    });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
 }

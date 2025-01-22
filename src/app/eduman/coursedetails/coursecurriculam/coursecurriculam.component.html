@@ -28,8 +28,8 @@
                             </div> -->
                         </div>
 
-                        <div *ngIf="lesson.is_free" [routerLink]="['lesson',lesson.video_url]"
-                            class="course-curriculum-content sm:flex justify-between items-center">
+                        <div *ngIf="lesson.is_free || isEnrolled" (click)="openDialog(lesson.video_url,lesson.title,lesson.id)"
+                            class="course-curriculum-content sm:flex justify-between items-center cursor-pointer">
                             <div class="course-curriculum-info ">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-1" fill="#A769CF"
                                     viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -48,7 +48,7 @@
                             </div>
                             <!-- <app-displayvideo [url]="lesson.video_url"></app-displayvideo> -->
                         </div>
-                        <div *ngIf="!lesson.is_free"
+                        <div *ngIf="!(lesson.is_free || isEnrolled)"
                             class="course-curriculum-content sm:flex justify-between items-center">
                             <div class="course-curriculum-info ">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-1" fill="gray"

@@ -1,0 +1,100 @@
+<div class="  px-2 py-8">
+    <div class="mx-5 bg-black m-auto shadow-lg">
+        <!-- <table mat-table [dataSource]="exams" class="bg-gray-300 w-96 " dir="rtl">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>
+                    Id
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.exam.id}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef>
+                    العنوان
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.exam.title }}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="start_date">
+                <th mat-header-cell *matHeaderCellDef>
+                    تاريخ البداية
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.exam.start_date | date : 'shortDate'}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="end_date">
+                <th mat-header-cell *matHeaderCellDef>
+                    تاريخ النهاية
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.exam.end_date | date: 'shortDate' }}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="duration">
+                <th mat-header-cell *matHeaderCellDef>
+                    الفترة الزمنية
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.exam.duration }}
+                </td>
+            </ng-container>
+           
+            </ng-container> 
+
+            <ng-container matColumnDef="info">
+                <th mat-header-cell *matHeaderCellDef>
+                    الدرجة
+                </th>
+                <td mat-cell *matCellDef="let element" class="text-green-500">
+                    <span *ngIf="current_date > element.exam.end_date">{{ element.degree }}</span>
+
+                    <span *ngIf="current_date < element.exam.end_date">انتظار..</span>
+                </td>
+            </ng-container>
+
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table> -->
+        <table dir="rtl">
+            <caption class="text-white">الامتحانات</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">العنوان </th>
+                    <th scope="col">تاريخ البداية</th>
+                    <th scope="col">تاريخ النهاية</th>
+                    <th scope="col"> الدرجة</th>
+                    <th scope="col"> الاجابة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let element of exams">
+                    <td scope="row" data-label="Id">{{element.exam.id}}</td>
+                    <td data-label="العنوان">{{element.exam.title}}</td>
+                    <td data-label="تاريخ البداية">{{element.exam.start_date | date:"shortDate"}}</td>
+                    <td data-label="تاريخ النهاية">{{element.exam.end_date | date:"shortDate"}}</td>
+                    <td data-label="الدرجة">{{element.degree}}</td>
+                    <td  data-label="الاجابة"  class="text-green-500">
+                        <span *ngIf="isPast(element.exam.end_date)"><button mat-stroked-button
+                                [routerLink]="['/exam-answer',element.exam.id]">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="blue" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                </svg>
+
+                            </button></span>
+
+                        <span *ngIf="!isPast(element.exam.end_date)">انتظار..</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

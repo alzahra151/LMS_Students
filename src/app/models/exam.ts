@@ -1,6 +1,7 @@
 import { Question } from "./question";
 
 export interface Exam {
+    id?:number
     title?: string;
     alt_title?: string;
     start_date?: Date;
@@ -16,9 +17,11 @@ export interface Exam {
         defaultValue: 'mcq';
     };
     questions?: Question[]
+    
 
 }
 export interface examRespone {
     exams: Exam[],
     exam: Exam
+    utcDate?: Date
 }

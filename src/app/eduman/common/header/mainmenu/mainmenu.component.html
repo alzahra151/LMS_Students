@@ -10,7 +10,7 @@
         </li>
         <li dir="rtl" class="menu-item-has-children"><a [routerLink]="['/course']">كورساتي</a>
             <ul class="sub-menu">
-                <li><a [routerLink]="['/course']">Course 1</a></li>
+                <li *ngFor="let item of courses"><a [routerLink]="['/course-details',item.course.id]">{{item.course.title}}</a></li>
                 <!-- <li><a [routerLink]="['/course-2']">Course 2</a></li>
                 <li><a [routerLink]="['/course-3']">Course 3</a></li>
                 <li><a [routerLink]="['/course-4']">Course 4</a></li>
@@ -18,6 +18,12 @@
                 <li><a [routerLink]="['/webinar']">Webinars</a></li>
                 <li><a [routerLink]="['/webinar-details']">Webinar Details</a></li> -->
             </ul>
+        </li>
+        <li dir="rtl" class="menu-item-has-children"><a [routerLink]="['/student/exams']">امتحاناتي</a>
+            <!-- <ul class="sub-menu">
+                <li *ngFor="let item of exams"><a [routerLink]="['/course']">{{item.exam.title}}</a></li>
+              
+            </ul> -->
         </li>
         <!-- <li class="menu-item-has-children"><a [routerLink]="['/shop']">كورسات</a>
             <ul class="sub-menu">
@@ -30,15 +36,13 @@
         </li> -->
         <li class="menu-item-has-children"><a href="javascript:void(0)">الصفحات</a>
             <ul class="sub-menu">
-                <li><a [routerLink]="['/about']">معلومات عنا</a></li>
+                <!-- <li><a [routerLink]="['/about']">معلومات عنا</a></li>
                 <li class="menu-item-has-children"><a [routerLink]="['/instructor']">المدرسين</a>
                     <ul class="sub-menu">
                         <li><a [routerLink]="['/instructor']">تفاصيل عن المدرس</a></li>
-                        <!-- <li><a [routerLink]="['/instructor-profile']">instructor profile</a></li>
-                        <li><a [routerLink]="['/student-profile']">Student profile</a></li>
-                        <li><a [routerLink]="['/become-instructor']">become instructor</a></li> -->
+                     
                     </ul>
-                </li>
+                </li> -->
                 <!-- <li class="menu-item-has-children"><a [routerLink]="['/zoom-class']">zoom class</a>
                     <ul class="sub-menu">
                         <li><a [routerLink]="['/zoom-class']">zoom class</a></li>

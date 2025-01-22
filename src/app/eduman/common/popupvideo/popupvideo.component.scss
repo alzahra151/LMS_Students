@@ -1,15 +1,59 @@
+// .course-video-popup {
+//     width: 850px;
+//     @media (min-width: 768px) and (max-width: 991px) {
+//         width: 700px;
+//         //  width: 100%;
+//     }
+//     @media (min-width: 576px) and (max-width: 767px) {
+//         // width: 440px;
+         
+//     }
+//     @media (min-width: 450px) and (max-width: 575px) {
+//         width: 350px;
+         
+//     }
+//     @media (max-width: 449px) {
+//         width: 100%;
+//     }
+// }
 .course-video-popup {
-    width: 850px;
-    @media (min-width: 768px) and (max-width: 991px) {
-        width: 600px;
+    width: 850px; /* Default width */
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .course-video-popup {
+        width: 700px; /* Adjusted width for screens between 768px and 991px */
     }
-    @media (min-width: 576px) and (max-width: 767px) {
-        width: 440px;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .course-video-popup {
+        width: 440px; 
+        /* Uncomment if needed */
     }
-    @media (min-width: 450px) and (max-width: 575px) {
-        width: 350px;
+}
+
+@media (min-width: 450px) and (max-width: 575px) {
+    .course-video-popup {
+        width: 350px; /* Adjusted width for screens between 450px and 575px */
     }
-    @media (max-width: 449px) {
-        width: 100%;
+}
+
+@media (max-width: 449px) {
+    .course-video-popup {
+        width: 100%; /* Full width for screens smaller than 450px */
     }
+}
+
+.comments-container {
+    flex: 1; /* Grow to fill available space */
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 250px; /* Adjust this value to your design needs */
+    border: 1px solid #ccc; /* Optional: For visual reference */
+    padding: 10px; /* Optional: For content padding */
+    background-color: #f9f9f9; /* Optional: For background color */
+}
+.comments {
+  max-height: 100%; /* Ensure comments fill the container */
+  padding: 10px; /* Optional: Padding for spacing */
 }

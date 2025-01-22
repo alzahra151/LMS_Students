@@ -9,3 +9,8 @@ export interface Lesson {
     duration?: number;
     is_free?: boolean;
 }
+
+export interface LessonRespone {
+    lessons: Lesson[],
+    lesson: Lesson[],
+}
