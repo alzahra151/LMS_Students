@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Classe } from 'src/app/models/classe';
 import { ClassesService } from 'src/app/services/classes/classes.service';
 import { StudentsService } from 'src/app/services/students/students.service';
@@ -17,14 +18,15 @@ export class SignupmainComponent {
   userForm: FormGroup;
   photoSrc = ''
   classes: Classe[] = []
+  errors: any
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private classService: ClassesService,
     private studentService: StudentsService,
     private snackBar: MatSnackBar,
-    private route: Router
-
+    private route: Router,
+    private toastService:ToastrService
   ) {
     this.userForm = this.fb.group({
       first_name: ['', Validators.required],
@@ -34,7 +36,7 @@ export class SignupmainComponent {
       email: [''],
       user_type: ['student'], // Assuming 'user_type' is a dropdown/select field
       photo: [''], // Assuming 'photo' is a text field
-      mobile: [null, [Validators.required, Validators.pattern(/^[0-9]*$/)]], // Assuming 'mobile' is a numeric field
+      mobile: [null, [Validators.required]], // Assuming 'mobile' is a numeric field
       // role_id: [null, Validators.required],
       class_id: [null, Validators.required],
     },
@@ -111,6 +113,8 @@ export class SignupmainComponent {
       error: (error) => {
         console.log(error.error.message)
         // this.showSuccess('تمت الاضافة بنجاح')
+        // this.errors = error.error.message
+        this.toastService.error(error.error.message)
       }
     })
   }
